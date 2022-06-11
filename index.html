@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://www.vidaalasnaciones.com.mx/img/logo-head.png" type="image/x-icon">
+    <link rel="stylesheet" href="main.css">
+    <title>Descripción del Integrante</title>
+</head>
+<body>
+    <nav>
+        <div class="texto">
+            <h1>Personal</h1>
+        </div>
+    </nav>
+    <div class="flex">
+        <div class="Card One">
+            <div class="alineacion">
+                <div class="texto-card">
+                    <div class="imagen">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR99MOe2StIB7s6VtXBby5BT83lX1yVSUA1sA&usqp=CAU" alt="">
+                    </div>
+                    <div class="nombres">
+                        <h1>Eduardo Aguirre</h1>
+                        <p>Miinisterio de Comunicaciones</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="description">
+            <h1>Califica mi servicio</h1>
+            <button type="button" onclick="notificar()">Enviar Calificación</button>
+        </div>
+    </div>
+
+      </div>
+      <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(){
+            if(!Notification){
+                alert("Las notificaciones no se soportan en tu navegador, bajate uno más nuevo.");
+
+                return;
+            }
+
+            if(Notification.permission !== "granted")
+            Notification.requestPermission();
+        });
+
+        function notificar(){
+            if(Notification.permission !=="granted"){
+                Notification.requestPermission();
+            }else{
+                var notification = new Notification("¡Tu respuesta se ha enviado con exito!",
+                {
+                    icon: "https://www.vidaalasnaciones.com.mx/img/logo-head.png",
+                    body: "Si quieres ver más ¡Pulsa Aquí!"
+                }
+                );
+
+                notificacion.onclick = function(){
+                    window.open("http://vidaalasnaciones.com.mx");
+                }
+            }
+        }
+      </script>
+
+</body>
+</html>
